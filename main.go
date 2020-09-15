@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"goblog/model"
+	"goblog/router"
+)
 
-func main(){
-	fmt.Print("hello go")
+func main (){
+	model.InitDb()
+	router.InitRouter()
 }

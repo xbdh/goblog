@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="bc1cda57-f10e-4a2a-8b69-94e0768b3d13" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/v1/article.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/v1/category.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/v1/login.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/v1/upload.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/v1/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/config.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/goblog.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/cors.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/jwt.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/logger.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/Article.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/Category.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/Upload.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/User.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/db.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/router/router.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/errmsg/errmsg.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/setting.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,10 +72,13 @@
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
   </component>
   <component name="RunManager">
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -59,6 +100,21 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.ini" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
@@ -71,13 +127,46 @@
     </environment>
   </component>
   <component name="WindowStateProjectService">
+    <state x="693" y="346" width="596" height="428" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599728701446">
+      <screen x="72" y="27" width="3288" height="1053" />
+    </state>
+    <state x="693" y="346" width="596" height="428" key="#com.intellij.fileTypes.FileTypeChooser/72.27.3288.1053@72.27.3288.1053" timestamp="1599728701446" />
     <state x="650" y="341" width="200" height="257" key="EnvironmentVariablesDialog" timestamp="1599475005097">
       <screen x="72" y="27" width="1368" height="873" />
     </state>
     <state x="650" y="341" width="200" height="257" key="EnvironmentVariablesDialog/72.27.1368.873@72.27.1368.873" timestamp="1599475005097" />
-    <state x="252" y="98" width="1007" height="737" key="SettingsEditor" timestamp="1599475981439">
-      <screen x="72" y="27" width="1368" height="873" />
+    <state width="1314" height="211" key="GridCell.Tab.0.bottom" timestamp="1599788674420">
+      <screen x="72" y="27" width="3288" height="1053" />
+    </state>
+    <state width="1314" height="211" key="GridCell.Tab.0.bottom/72.27.1368.873@72.27.1368.873" timestamp="1599651921694" />
+    <state width="1314" height="211" key="GridCell.Tab.0.bottom/72.27.3288.1053@72.27.3288.1053" timestamp="1599788674420" />
+    <state width="1314" height="211" key="GridCell.Tab.0.center" timestamp="1599788674419">
+      <screen x="72" y="27" width="3288" height="1053" />
+    </state>
+    <state width="1314" height="211" key="GridCell.Tab.0.center/72.27.1368.873@72.27.1368.873" timestamp="1599651921693" />
+    <state width="1314" height="211" key="GridCell.Tab.0.center/72.27.3288.1053@72.27.3288.1053" timestamp="1599788674419" />
+    <state width="1314" height="211" key="GridCell.Tab.0.left" timestamp="1599788674419">
+      <screen x="72" y="27" width="3288" height="1053" />
+    </state>
+    <state width="1314" height="211" key="GridCell.Tab.0.left/72.27.1368.873@72.27.1368.873" timestamp="1599651921693" />
+    <state width="1314" height="211" key="GridCell.Tab.0.left/72.27.3288.1053@72.27.3288.1053" timestamp="1599788674419" />
+    <state width="1314" height="211" key="GridCell.Tab.0.right" timestamp="1599788674419">
+      <screen x="72" y="27" width="3288" height="1053" />
+    </state>
+    <state width="1314" height="211" key="GridCell.Tab.0.right/72.27.1368.873@72.27.1368.873" timestamp="1599651921694" />
+    <state width="1314" height="211" key="GridCell.Tab.0.right/72.27.3288.1053@72.27.3288.1053" timestamp="1599788674419" />
+    <state x="72" y="113" width="1848" height="889" key="SettingsEditor" timestamp="1599732335407">
+      <screen x="72" y="27" width="3288" height="1053" />
     </state>
     <state x="252" y="98" width="1007" height="737" key="SettingsEditor/72.27.1368.873@72.27.1368.873" timestamp="1599475981439" />
+    <state x="72" y="113" width="1848" height="889" key="SettingsEditor/72.27.3288.1053@72.27.3288.1053" timestamp="1599732335407" />
+    <state x="694" y="244" width="594" height="626" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600145891450">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="694" y="244" width="594" height="626" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/72.27.1848.1053/1920.0.1440.900@72.27.1848.1053" timestamp="1600145891450" />
+    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1600145911630">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup/72.27.1848.1053/1920.0.1440.900@72.27.1848.1053" timestamp="1600145911630" />
   </component>
 </project>
