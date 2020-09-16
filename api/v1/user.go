@@ -60,10 +60,34 @@ func GetUsers(c *gin.Context){
 }
 // 编辑用户
 func EditUser(c *gin.Context){
+	var u model.User
+	_ =c.ShouldBindJSON(&u)
+	id ,_:=strconv.Atoi(c.Param("id"))
+	errCode :=model.CheckUser(u.Username)
+	if errCode==errmsg.SUCCSE{
+		_ =model.EditUser(id,&u)
+	}
 
+	if errCode==errmsg.ERROR_USERNAME_USED {
+		c.Abort()
+	}
+	c.JSON(http.StatusOK,gin.H{
+		"status":errCode,
+		"message":errmsg.GetErrMsg(errCode),
+	})
 }
 // 删除用户
 
 func DeleteUser(c *gin.Context)  {
+	// param 和query 一定要分清啊
+    id ,_:=strconv.Atoi(c.Param("id"))
+    errCode :=model.DeleteUser(id)
+
+    c.JSON(http.StatusOK,gin.H{
+    	"status":errCode,
+    	"message":errmsg.GetErrMsg(errCode),
+
+	})
+
 
 }

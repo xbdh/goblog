@@ -20,13 +20,18 @@ func InitRouter() {
 
 		// category
 		router.POST("category/add", v1.AddCategory)
-		router.GET("categories", v1.GetCategories)
+		router.GET("categorys", v1.GetCategorys)
+
 		router.PUT("category/:id", v1.EditCategory)
 		router.DELETE("category/:id", v1.DeleteCategory)
 
 		// article
 		router.POST("article/add", v1.AddArticle)
+
 		router.GET("articles", v1.GetArticles)
+		router.GET("article/info/:id", v1.GetArticleInfo)
+		router.GET("article/category/:id",v1.GetCateOfArticle)
+
 		router.PUT("article/:id", v1.EditArticle)
 		router.DELETE("article/:id", v1.DeleteArticle)
 
