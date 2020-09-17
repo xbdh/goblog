@@ -10,10 +10,10 @@ import (
 
 type User struct {
 	gorm.Model
-	Username string `gorm:"type:varchar(20) ;not null" json:"username"`
+	Username string `gorm:"type:varchar(20) ;not null" json:"username" validator:"required ,min=4 ,max=20" label:"用户名"`
 
-	Password string `gorm:"type:varchar(20) ;not null" json:"password"`
-	Role     int    `gorm:"type:int" json:"role"`
+	Password string `gorm:"type:varchar(20) ;not null" json:"password" validator :"required ,min=8,max=20" label:"密码"`
+	Role     int    `gorm:"type:int;DEFAULT: 2" json:"role"  validate:"required,gte=2" label:"角色"`
 }
 
 func CheckUser(name string) (errCode int) {
@@ -31,7 +31,7 @@ func CheckUser(name string) (errCode int) {
 // 新增用户
 func CreateUser(u *User) (errCode int) {
 
-	u.Password =ScryptPassword(u.Password)
+	u.Password = ScryptPassword(u.Password)
 	err := db.Create(&u).Error
 
 	if err != nil {
@@ -55,27 +55,27 @@ func GetUsers(pageSize int, pageNum int) []User {
 	return us
 }
 
-
 // 编辑用户
 // 更新除密码以外的字段，字段类型不同
-func EditUser(id int,u *User  ) (errCode int){
+func EditUser(id int, u *User) (errCode int) {
 	var maps = make(map[string]interface{})
-	maps["username"]=u.Username
-	maps["role"]=u.Role
-	err = db.Model(&User{}).Where("id =? ",id).Update(maps).Error
-	if err!=nil{
+	maps["username"] = u.Username
+	maps["role"] = u.Role
+	err = db.Model(&User{}).Where("id =? ", id).Update(maps).Error
+	if err != nil {
 		return errmsg.ERROR
 	}
 
 	return errmsg.SUCCSE
 
 }
+
 // 删除用户
-func DeleteUser(id int)(errCode int){
+func DeleteUser(id int) (errCode int) {
 	var u User
 	// gorm 操作待看
-	err =db.Where("id= ? ",id).Delete(&u).Error
-	if err!=nil{
+	err = db.Where("id= ? ", id).Delete(&u).Error
+	if err != nil {
 		return errmsg.ERROR
 	}
 	return errmsg.SUCCSE
@@ -84,19 +84,19 @@ func DeleteUser(id int)(errCode int){
 // 密码加密
 // bcrypt scrypt 两种加密，也可以用钩子函数
 
-func ScryptPassword(password string)string  {
+func ScryptPassword(password string) string {
 	//返回的密码【】byte 的长度
-	const keyLen=15
-	salt:=make([]byte,8)
+	const keyLen = 15
+	salt := make([]byte, 8)
 
-	salt =[]byte{20,20,9,16,12,46}
-	HashPassword,err:=scrypt.Key([]byte(password),salt,32768, 8, 1, keyLen)
-	if err!=nil{
+	salt = []byte{20, 20, 9, 16, 12, 46}
+	HashPassword, err := scrypt.Key([]byte(password), salt, 32768, 8, 1, keyLen)
+	if err != nil {
 		log.Fatal(err)
 	}
 	//fmt.Println(HashPassword)
 
-	fpw:=base64.StdEncoding.EncodeToString(HashPassword)
+	fpw := base64.StdEncoding.EncodeToString(HashPassword)
 	return fpw
 }
 
@@ -104,3 +104,23 @@ func ScryptPassword(password string)string  {
 //func (u* User)BeforeSave(){
 //
 //}
+
+// 验证登录
+
+func CheckLogin(username string, password string) int {
+	var u User
+
+	db.Where("username = ?", username).First(&u)
+	if u.ID == 0 {
+		return errmsg.ERROR_USER_NOT_EXIST
+	}
+	if ScryptPassword(password) != u.Password {
+		return errmsg.ERROR_PASSWORD_WRONG
+	}
+	// 无管理员权限
+	if u.Role != 1 {
+		return errmsg.ERROR_USER_NO_RIGHT
+	}
+
+	return errmsg.SUCCSE
+}

@@ -16,6 +16,12 @@ var (
 	DbUser string
     DbPassWord string
 	DbName string
+
+	EndPoint string
+	Bucket string
+	AccessKeyID string
+	AccessKeySecret string
+
 )
 
 func init(){
@@ -25,12 +31,13 @@ func init(){
 	}
 	LoadServe(file)
 	LoadData(file)
+	LoadOss(file)
 }
 
 func LoadServe(file * ini.File){
 	AppMode =file.Section("server").Key("AppMode").MustString("debug")
 	HttpPort =file.Section("server").Key("HttpPort").MustString(":3000")
-	JwtKey =file.Section("server").Key("Jwtkey").MustString("wsszzgwdslj")
+	JwtKey =file.Section("server").Key("JwtKey").MustString("wsszzgwdslj")
 
 }
 func LoadData(file * ini.File){
@@ -41,4 +48,11 @@ func LoadData(file * ini.File){
 	DbPassWord=file.Section("database").Key("DbPassWord").MustString("")
 	DbName =file.Section("database").Key("DbName").MustString("goblog")
 
+}
+
+func LoadOss(file * ini.File){
+	EndPoint =file.Section("oss").Key("EndPoint").MustString("http://oss-cn-beijing.aliyuncs.com")
+	Bucket =file.Section("oss").Key("Bucket").MustString("ginblog")
+	AccessKeyID =file.Section("oss").Key("AccessKeyID").MustString("LTAI4FjLbaRPyz3AVBTYmEzv")
+	AccessKeySecret =file.Section("oss").Key("AccessKeySecret").MustString("BW2twkD42tPSaOHYxKwBStIRdt3uy")
 }
